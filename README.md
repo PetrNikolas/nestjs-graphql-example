@@ -73,7 +73,7 @@ query{
 ```graphql
 # Create user
 mutation{createUser(createUserData: {
-  email: "hello@petrnikolas.com",
+  email: "hello@mail.com",
   age: 28}) {
     userId
     email
