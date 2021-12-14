@@ -3,8 +3,7 @@ import { IsNotEmpty, isNotEmpty } from 'class-validator';
 
 @ArgsType()
 export class GetUserArgs {
-    @Field()
-    @IsNotEmpty()
-    userId: string;
-
+  @Field()
+  @IsNotEmpty()
+  userId: string;
 }

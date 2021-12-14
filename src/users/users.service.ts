@@ -9,47 +9,50 @@ import { User } from './models/user';
 
 @Injectable()
 export class UsersService {
-    private users: User[] = [];
+  private users: User[] = [];
 
-    public createUser(createUserData: CreateUserInput): User {
-        const user: User = {
-            userId: uuidv4(),
-            ...createUserData
-        }
+  public createUser(createUserData: CreateUserInput): User {
+    const user: User = {
+      userId: uuidv4(),
+      ...createUserData,
+    };
 
-        this.users.push(user);
+    this.users.push(user);
 
-        return user;
-    }
+    return user;
+  }
 
-    public updateUser(updateUserData: UpdateUserInput): User {
-        const user = this.users.find(user => user.userId === updateUserData.userId);
+  public updateUser(updateUserData: UpdateUserInput): User {
+    const user = this.users.find(
+      (user) => user.userId === updateUserData.userId,
+    );
 
-        Object.assign(user, updateUserData);
+    Object.assign(user, updateUserData);
 
-        return user;
-    }
+    return user;
+  }
 
-    public getUser(getUserArgs: GetUserArgs): User {
-        return this.users.find(user => user.userId === getUserArgs.userId);
-    }
+  public getUser(getUserArgs: GetUserArgs): User {
+    return this.users.find((user) => user.userId === getUserArgs.userId);
+  }
 
-    public getUsers(getUsersArgs: GetUsersArgs): User[] {
-        return getUsersArgs.userIds.map(userId => this.getUser({ userId }));
-    }
+  public getUsers(getUsersArgs: GetUsersArgs): User[] {
+    return getUsersArgs.userIds.map((userId) => this.getUser({ userId }));
+  }
 
-    public getAllUsers(): User[] {
-        return this.users;
-    }
+  public getAllUsers(): User[] {
+    return this.users;
+  }
 
-    public deleteUser(deleteUserData: DeleteUserInput): User {
-        const userIndex = this.users.findIndex(user => user.userId === deleteUserData.userId);
+  public deleteUser(deleteUserData: DeleteUserInput): User {
+    const userIndex = this.users.findIndex(
+      (user) => user.userId === deleteUserData.userId,
+    );
 
-        const user = this.users[userIndex];
+    const user = this.users[userIndex];
 
-        this.users.splice(userIndex);
+    this.users.splice(userIndex);
 
-        return user;
-    }
-
+    return user;
+  }
 }

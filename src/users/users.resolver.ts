@@ -9,36 +9,35 @@ import { UsersService } from './users.service';
 
 @Resolver(() => User)
 export class UsersResolver {
-    constructor(private readonly usersService: UsersService) {}
+  constructor(private readonly usersService: UsersService) {}
 
-    @Query(() => User, { name: 'user', nullable: true })
-    getUser(@Args() getuserArgs: GetUserArgs): User {
-        return this.usersService.getUser(getuserArgs);
-    }
+  @Query(() => User, { name: 'user', nullable: true })
+  getUser(@Args() getuserArgs: GetUserArgs): User {
+    return this.usersService.getUser(getuserArgs);
+  }
 
-    @Query(() => [User], { name: 'users', nullable: 'items' })
-    getUsers(@Args() getUsersArgs: GetUsersArgs): User[] {
-        return this.usersService.getUsers(getUsersArgs);
-    }
+  @Query(() => [User], { name: 'users', nullable: 'items' })
+  getUsers(@Args() getUsersArgs: GetUsersArgs): User[] {
+    return this.usersService.getUsers(getUsersArgs);
+  }
 
-    @Query(() => [User], { name: 'allUsers', nullable: 'items' })
-    getAllUsers(): User[] {
-        return this.usersService.getAllUsers();
-    }
+  @Query(() => [User], { name: 'allUsers', nullable: 'items' })
+  getAllUsers(): User[] {
+    return this.usersService.getAllUsers();
+  }
 
-    @Mutation(() => User)
-    createUser(@Args('createUserData') createUserData: CreateUserInput): User {
-        return this.usersService.createUser(createUserData);
-    }
+  @Mutation(() => User)
+  createUser(@Args('createUserData') createUserData: CreateUserInput): User {
+    return this.usersService.createUser(createUserData);
+  }
 
-    @Mutation(() => User)
-    updateUser(@Args('updateUserData') updateUserData: UpdateUserInput): User {
-        return this.usersService.updateUser(updateUserData);
-    }
+  @Mutation(() => User)
+  updateUser(@Args('updateUserData') updateUserData: UpdateUserInput): User {
+    return this.usersService.updateUser(updateUserData);
+  }
 
-    @Mutation(() => User)
-    deleteUser(@Args('deleteUserData') deleteUserData: DeleteUserInput): User {
-        return this.usersService.deleteUser(deleteUserData);
-    }
-
+  @Mutation(() => User)
+  deleteUser(@Args('deleteUserData') deleteUserData: DeleteUserInput): User {
+    return this.usersService.deleteUser(deleteUserData);
+  }
 }
