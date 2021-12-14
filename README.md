@@ -43,7 +43,7 @@ open http://localhost:3000/graphql in browser
 ```graphql
 # Get user by ID
 query{
-    user(userId: "2981ce4c-78fb-49bf-8d20-f9b1bfc5c4b0") {
+    user(userId: "USER_ID") {
         userId
         age
         email
@@ -52,7 +52,7 @@ query{
 
 # Get multiple users by IDs
 query{
-    users(userIds: ["2981ce4c-78fb-49bf-8d20-f9b1bfc5c4b0"]) {
+    users(userIds: ["USER_ID"]) {
         userId
         age
         email
@@ -84,7 +84,7 @@ mutation{createUser(createUserData: {
 
 # Update user by ID
 mutation{updateUser(updateUserData: {
-    userId: "2981ce4c-78fb-49bf-8d20-f9b1bfc5c4b0"
+    userId: "USER_ID"
     age: 29}) {
         userId
         email
@@ -96,7 +96,7 @@ mutation{updateUser(updateUserData: {
 # Delete user by ID
 mutation{
     deleteUser(deleteUserData: {
-        userId: "f14607d1-2f04-4d23-98c6-9b48adc15177"}) {
+        userId: "USER_ID"}) {
         userId
     }
 }
